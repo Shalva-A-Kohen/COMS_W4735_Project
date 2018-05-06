@@ -27,21 +27,23 @@ file = open(name_filename+'.txt','w')
 for filename in img_filename:
     img = cv2.resize(cv2.imread(img_filpath+filename), (750,500))
     border = cv2.copyMakeBorder(img,0,100,0,0,cv2.BORDER_CONSTANT,value=[0,0,0])
-    cv2.putText(border, "Press 'z' for attractive and 'm' for unattractive", (10, 570), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 1)
+    cv2.putText(border, "Press rate from 1(unattractive) to 5(attractive)", (10, 570), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 1)
 
     cv2.addWeighted(ui, 0, border, 1, 0, ui)
 
     cv2.imshow('image',ui)
     res = cv2.waitKey(0)
 
-    if res == ord('m'):
-        file.write(filename+", "+str(0)+"\n")
-        print("u ugly")
-        continue
-    elif res == ord('z'):
+    if res == ord('1'):
         file.write(filename+", "+str(1)+"\n")
-        print("look kinda like a human")
-        continue
+    elif res == ord('2'):
+        file.write(filename+", "+str(2)+"\n")
+    elif res == ord('3'):
+        file.write(filename+", "+str(3)+"\n")
+    elif res == ord('4'):
+        file.write(filename+", "+str(4)+"\n")
+    elif res == ord('5'):
+        file.write(filename+", "+str(5)+"\n")
 
 
 cv2.destroyAllWindows()
