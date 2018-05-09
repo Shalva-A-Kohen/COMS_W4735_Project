@@ -25,3 +25,7 @@ They are in the following order
 15. Horizontal Ratio  
 
 No need to use all of them. 
+
+f_hair is if the person has facial hair  
+0 = no facial hair  
+1 = has facial hair
